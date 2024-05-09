@@ -22,3 +22,10 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+# LLM checkpoints
+ag_ckpt_vocab/
+
+bin/
+meliad_lib/
+
