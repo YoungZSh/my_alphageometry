@@ -18,17 +18,17 @@ set -e
 set -x
 
 # virtualenv -p python3 . 会自动安装最新版本的python导致pip失败
-# virtualenv -p /home/yzs/miniconda3/envs/AG/bin/python .
+# virtualenv -p /home/yzs/.conda/envs/AG/bin/python .
 source ./bin/activate
 
-pip install --require-hashes -r requirements.txt
+# pip install --require-hashes -r requirements.txt
 
 # gdown --folder https://bit.ly/alphageometry
 DATA=ag_ckpt_vocab
 
 MELIAD_PATH=meliad_lib/meliad
-# mkdir -p $MELIAD_PATH
-# git clone https://github.com/google-research/meliad $MELIAD_PATH
+mkdir -p $MELIAD_PATH
+git clone https://github.com/google-research/meliad $MELIAD_PATH
 export PYTHONPATH=$PYTHONPATH:$MELIAD_PATH
 
 DDAR_ARGS=(

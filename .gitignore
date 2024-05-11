@@ -29,3 +29,5 @@ ag_ckpt_vocab/
 bin/
 meliad_lib/
 
+*.cfg
+
