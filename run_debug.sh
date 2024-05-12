@@ -49,4 +49,5 @@ python -m debugpy --listen 49409 --wait-for-client alphageometry.py \
 --mode=alphageometry \
 "${DDAR_ARGS[@]}" \
 "${SEARCH_ARGS[@]}" \
-"${LM_ARGS[@]}"
+"${LM_ARGS[@]}" \
+> output.log 2>&1
