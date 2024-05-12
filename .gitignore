@@ -30,4 +30,5 @@ bin/
 meliad_lib/
 
 *.cfg
+*.log
 
