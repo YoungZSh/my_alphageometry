@@ -59,10 +59,12 @@ class Construction:
     self.args = args
 
   def translate(self, mapping: dict[str, str]) -> Construction:
+    """基于mapping进行翻译，返回新的Construction"""
     args = [a if isint(a) else mapping[a] for a in self.args]
     return Construction(self.name, args)
 
   def txt(self) -> str:
+    """返回Construction的文本形式"""
     return ' '.join([self.name] + list(self.args))
 
 
@@ -318,7 +320,7 @@ class Definition:
   @classmethod
   def from_txt(cls, data: str) -> Definition:
     """Load definitions from a str object."""
-    construction, rely, deps, basics, numerics, _ = data.split('\n')
+    construction, rely, deps, basics, numerics, _ = data.split('\n') # defs.txt每组的每行对应定义
     basics = [] if not basics else [b.strip() for b in basics.split(';')]
 
     levels = []

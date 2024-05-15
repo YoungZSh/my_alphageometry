@@ -153,6 +153,7 @@ class Graph:
     self.connect_val(rat, deps=None)
 
   def get_or_create_const_ang(self, n: int, d: int) -> None:
+    """获得或根据n、d创建常数角度(n*pi/d和(d-n)*pi/d)"""
     n, d = ar.simplify(n, d)
     if (n, d) not in self.aconst:
       self._create_const_ang(n, d)
@@ -165,6 +166,7 @@ class Graph:
     return ang1, ang2
 
   def get_or_create_const_rat(self, n: int, d: int) -> None:
+    """获得或根据n、d创建常数比率(n/d和d/n)"""
     n, d = ar.simplify(n, d)
     if (n, d) not in self.rconst:
       self._create_const_rat(n, d)
@@ -176,7 +178,10 @@ class Graph:
     return rat1, rat2
 
   def add_algebra(self, dep: Dependency, level: int) -> None:
-    """Add new algebraic predicates."""
+    """
+    Add new algebraic predicates.
+    根据Dependency添加新的代数关系。
+    """
     _ = level
     if dep.name not in [
         'para',

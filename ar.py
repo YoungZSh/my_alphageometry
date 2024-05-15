@@ -30,12 +30,14 @@ class InfQuotientError(Exception):
 
 
 def _gcd(x: int, y: int) -> int:
+  """x,y的最大公约数"""
   while y:
     x, y = y, x % y
   return x
 
 
 def simplify(n: int, d: int) -> tuple[int, int]:
+  """简化n、d直至互质"""
   g = _gcd(n, d)
   return (n // g, d // g)
 
@@ -596,7 +598,7 @@ class AngleTable(GeometricTable):
     super().__init__(name)
     self.pi = self.const
 
-  def modulo(self, e: dict[str, float]) -> dict[str, float]:
+  def modulo(self, e:  dict[str, float]) -> dict[str, float]:
     e = strip(e)
     if self.pi not in e:
       return super().modulo(e)
